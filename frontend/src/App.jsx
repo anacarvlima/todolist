@@ -49,6 +49,7 @@ function App() {
 
   const handleLogin = (email, password) => {
     const validUser = { email: 'usuario@exemplo.com', password: 'senha123' };
+    console.log(`Tentativa de login - Email: "${email.trim()}", Senha: "${password.trim()}"`);
     if (email === validUser.email && password === validUser.password) {
       setIsLoggedIn(true);
       alert('Login bem-sucedido!');
