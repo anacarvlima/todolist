@@ -15,13 +15,13 @@ app.use(express.json());
 app.use('/users', userRoutes);
 app.use('/tasks', taskRoutes);
 
-const PORT = process.env.PORT || 3000;
+const DATABASE_URL = process.env.DATABASE_URL;
 
 async function main() {
   try {
     await prisma.$connect();
     console.log('✅ Banco de dados conectado com sucesso!');
-    app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta ${PORT}`));
+    app.listen(DATABASE_URL, () => console.log(`🚀 Servidor rodando na porta ${DATABASE_URL}`));
   } catch (error) {
     console.error('❌ Erro ao conectar ao banco de dados:', error);
     process.exit(1);

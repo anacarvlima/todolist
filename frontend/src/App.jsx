@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import Todo from './components/Todo';
+import axios from 'axios';
 import TodoForm from './components/TodoForm';
 import Login from './components/Login';
 import Register from './components/Register';
 import './App.css'
 
+
 function App() {
+
+  
+  const REACT_APP_API_URL = "http://localhost:5555";
   const [todos, setTodos] = useState([
     {
       "id": 1,
@@ -27,7 +32,9 @@ function App() {
     }
   ]
   )
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [token, setToken] = useState(null);
   
   
   const addTodo = (text, category) =>{
@@ -44,27 +51,32 @@ function App() {
     setTodos(newTodos)
   }
   
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isRegistering, setIsRegistering] = useState(false);
+  
 
-  const handleLogin = (email, password) => {
-    const validUser = { email: 'usuario@exemplo.com', password: 'senha123' };
-    console.log(`Tentativa de login - Email: "${email.trim()}", Senha: "${password.trim()}"`);
-    if (email === validUser.email && password === validUser.password) {
+  const handleLogin = async (email, password) => {
+    try {
+      const response = await axios.post(`${REACT_APP_API_URL}/login`, { email, pwd: password });
       setIsLoggedIn(true);
+      setToken(response.data.token);
       alert('Login bem-sucedido!');
-    } else {
+    } catch (error) {
       alert('E-mail ou senha incorretos.');
     }
   };
 
-  const handleRegister = (name, email, password) => {
-    console.log(`Usuário cadastrado: Nome: ${name}, Email: ${email}`);
-    setIsRegistering(false);
+  const handleRegister = async (name, email, password) => {
+    try {
+      await axios.post(`${REACT_APP_API_URL}/register`, { name, email, pwd: password });
+      alert('Cadastro realizado com sucesso! Faça login.');
+      setIsRegistering(false);
+    } catch (error) {
+      alert('Erro ao cadastrar usuário.');
+    }
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    setToken(null);
     alert('Logout realizado com sucesso!');
   };
 
