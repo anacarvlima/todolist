@@ -8,7 +8,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
     if (!email || !password) return;
     console.log('Email:', email, 'Senha:', password);
-    onLogin(); // Chama a função de login (pode ser substituída por lógica de autenticação)
+    onLogin(email, password); // Chama a função de login (pode ser substituída por lógica de autenticação)
     setEmail('');
     setPassword('');
   };
