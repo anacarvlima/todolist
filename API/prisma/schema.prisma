@@ -19,3 +19,10 @@ model User {
   name  String  @unique 
   pwd String
 }
+
+model Task {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  completed   Boolean @default(false)
+}

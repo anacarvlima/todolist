@@ -1,12 +1,31 @@
-import express from 'express'
-import { PrismaClient } from '@prisma/client'
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import { PrismaClient } from '@prisma/client';
+import userRoutes from './routes/userRoutes.js';
+import taskRoutes from './routes/taskRoutes.js';
 
-const prisma = new PrismaClient()
+dotenv.config();
+const app = express();
+const prisma = new PrismaClient();
 
-const app = express()
+app.use(cors());
+app.use(express.json());
 
-app.get('/usuarios', (req, res) => {
-    res.send('blz')
-})
+app.use('/users', userRoutes);
+app.use('/tasks', taskRoutes);
 
-app.listen(3000)
+const PORT = process.env.PORT || 3000;
+
+async function main() {
+  try {
+    await prisma.$connect();
+    console.log('✅ Banco de dados conectado com sucesso!');
+    app.listen(PORT, () => console.log(`🚀 Servidor rodando na porta ${PORT}`));
+  } catch (error) {
+    console.error('❌ Erro ao conectar ao banco de dados:', error);
+    process.exit(1);
+  }
+}
+
+main();
