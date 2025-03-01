@@ -1,38 +1,129 @@
-.App {
+body{
+  font-family: Arial;
+  background-color: #0099E9;
+  padding: 30px;
+  color: #333;
+  /* background-image: url(""./img/nome-do-arquivo") */
+  /* background-position: center; */
+  /* background-size: cover; */
+}
+
+.app{
+  max-width: 600px;
+  margin: 0 auto 300px;
+  background-color: #efefef;
+  padding:20px 30px;
+  border-radius: 10px;
+}
+
+h1{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2{
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p{
+  margin: 10px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input{
+  box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  background-color: #0099E9;
+  color: #FFF;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: .8;
+  transition: .3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+opacity: 5;
+}
+
+.todo-list{
+  margin-bottom: 200px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #555;
+}
+
+.todo{
+  background-color: #FFF;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+.complete{
+  background-color: #438d11
+
+}
+
+.remove{
+  background-color: #DC143C;
+}
+
+.todo-form{
+  padding-bottom: 1.5rem;
+}
+
+input, select {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #DDD;
+  border-radius: 3px;
+  width: 100%
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #2c2c2c;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 1.8em;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 1em;
+}
+
+.login-form input::placeholder {
+  color: #888;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #646cff;
+  color: #ffffff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #535bf2;
 }
