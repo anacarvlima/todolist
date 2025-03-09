@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from "react";
+import "./Login.css";
 
 const Login = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email || !password) return;
-    console.log('Email:', email, 'Senha:', password);
-    onLogin(email, password); // Chama a função de login (pode ser substituída por lógica de autenticação)
-    setEmail('');
-    setPassword('');
+    console.log("Email:", email, "Senha:", password);
+    onLogin(email, password); 
+    setEmail("");
+    setPassword("");
   };
 
   return (

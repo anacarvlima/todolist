@@ -1,0 +1,61 @@
+.todo {
+    background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .todo.complete {
+    background-color: #438d11;
+  }
+  
+  .button-container {
+    display: flex;               
+    justify-content: center;     
+    align-items: center;         
+    margin-top: auto;            
+    padding: 10px 20px;          
+    background-color: #efefef;   
+  }
+  
+  .button-container button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+    color: #fff; 
+  }
+  
+  .button-container button:hover {
+    opacity: 1;
+  }
+  
+  .complete {
+    background-color: #438d11;
+    color: #FFF;
+  }
+  
+  .edit {
+    background-color: #FF9800;
+    color: #FFF;
+  }
+  
+  .remove {
+    background-color: #DC143C;
+    color: #FFF;
+  }
+  
+  .content {
+    flex: 1; 
+  }
+  
+  .category {
+    font-size: 0.9em;
+    color: #555;
+  }

@@ -1,18 +1,19 @@
-import { useState } from 'react';
+import React, { useState } from "react";
+import "./Register.css";
 
 const Register = ({ onRegister }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name || !email || !password) return;
-    console.log('Nome:', name, 'Email:', email, 'Senha:', password);
+    console.log("Nome:", name, "Email:", email, "Senha:", password);
     onRegister(name, email, password);
-    setName('');
-    setEmail('');
-    setPassword('');
+    setName("");
+    setEmail("");
+    setPassword("");
   };
 
   return (
