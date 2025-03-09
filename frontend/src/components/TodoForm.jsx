@@ -7,10 +7,18 @@ const TodoForm = ({ addTodo }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!value || !category) return; 
-        addTodo(value, category); 
-        setValue(""); 
-        setCategory(""); 
+
+        if (!value) {
+            alert("O título não pode estar vazio!");
+            return; 
+        }
+        if (!category) {
+            alert("Selecione uma prioridade!");
+            return; 
+        }
+        addTodo(value, category);
+        setValue("");
+        setCategory("");
     };
 
     return (
