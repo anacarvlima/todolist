@@ -10,8 +10,13 @@ const Register = ({ onRegister }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !email || !password || !sex || !age) return;
-    console.log("Nome:", name, "Email:", email, "Senha:", password, "Sexo:", sex, "Idade:", age);
+    
+    if (isNaN(age) || age < 0) {
+      alert("Idade inválida! A idade deve ser um número positivo.");
+      setAge(""); 
+      return;
+    }
+    
     onRegister(name, email, password, sex, age);
     setName("");
     setEmail("");
@@ -42,12 +47,12 @@ const Register = ({ onRegister }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-       <input
+        <input
           type="text"
           placeholder="Digite seu sexo"
           value={sex}
           onChange={(e) => setSex(e.target.value)}
-/>
+        />
         <input
           type="number"
           placeholder="Digite sua idade"

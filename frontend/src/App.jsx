@@ -83,24 +83,16 @@ function App() {
     }
   };
 
-  const handleRegister = async (name, email, password, sex, age) => {
+  const handleRegister = async (name, email, password, sex, age, setAge) => {
     if (!name || !email || !password || !sex || !age) {
       alert("Por favor, preencha todos os campos!");
       return;
     }
-    if (
-      name === "Ana Cecília" &&
-      email === "cecilia@teste.com" &&
-      password === "123456" &&
-      sex === "Feminino" &&
-      age === "19"
-    ) {
-      setIsRegistering(true); 
-      alert("Cadastro bem-sucedido!");
-    } else {
-      alert("Erro ao realizar o cadastro.");
-    }
-  };
+
+    setIsRegistering(true);
+    alert("Cadastro bem-sucedido!");
+  }; 
+
   const handleEditProfile = () => {
     alert("Editar Perfil clicado!");
   };
