@@ -6,9 +6,12 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!email || !password) return;
-    console.log("Email:", email, "Senha:", password);
+    e.preventDefault(); 
+  
+    if (!email || !password) {
+      alert("Por favor, preencha todos os campos!"); 
+      return; 
+    }
     onLogin(email, password); 
     setEmail("");
     setPassword("");

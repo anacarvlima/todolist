@@ -74,7 +74,7 @@ function App() {
     );
   };
 
-  const handleLogin = (email, password) => {
+  const handleLogin = (email, password) => {  
     if (email === "cecilia@teste.com" && password === "123456") {
       setIsLoggedIn(true);
       alert("Login bem-sucedido!");
@@ -83,20 +83,24 @@ function App() {
     }
   };
 
-  const handleRegister = async (name, email, password) => {
-    try {
-      await axios.post(`${REACT_APP_API_URL}/register`, {
-        name,
-        email,
-        pwd: password,
-      });
-      alert("Cadastro realizado com sucesso! Faça login.");
-      setIsRegistering(false);
-    } catch (error) {
-      alert("Erro ao cadastrar usuário.");
+  const handleRegister = async (name, email, password, sex, age) => {
+    if (!name || !email || !password || !sex || !age) {
+      alert("Por favor, preencha todos os campos!");
+      return;
+    }
+    if (
+      name === "Ana Cecília" &&
+      email === "cecilia@teste.com" &&
+      password === "123456" &&
+      sex === "Feminino" &&
+      age === "19"
+    ) {
+      setIsRegistering(true); 
+      alert("Cadastro bem-sucedido!");
+    } else {
+      alert("Erro ao realizar o cadastro.");
     }
   };
-
   const handleEditProfile = () => {
     alert("Editar Perfil clicado!");
   };
